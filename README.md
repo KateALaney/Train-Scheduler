@@ -32,4 +32,4 @@ In this assignment, you'll create a train schedule application that incorporates
 * Moment.js
 * Firebase
 
-### Link Available: 
+### Link Available: https://katealaney.github.io/Train-Scheduler/
