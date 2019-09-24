@@ -15,13 +15,12 @@ const firebaseConfig = {
 var database = firebase.database();
 
 // Define initial variables.
-var trainName = "";
-var destination = "";
+var trainName;
+var destination;
 var frequency = 0;
 var minutesAway = 0;
 var firstTrain = 0;
 var nextArrival = 0;
-var trainTime = 0;
 
 // Capture button click.
 $("#add-train").on("click", function(event) {
@@ -38,10 +37,8 @@ $("#add-train").on("click", function(event) {
     trainName: trainName,
     destination: destination,
     frequency: frequency,
-    minutesAway: minutesAway,
     firstTrain: firstTrain,
     nextArrival: nextArrival,
-    trainTime: trainTime,
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 
@@ -52,23 +49,27 @@ $("#add-train").on("click", function(event) {
   frequencyInput = $("#frequency-input").val("");
 });
 
-// Firebase watcher + initial loader.
+// Conversion of input to next train time and minutes away.
 database.ref().on("child_added", function(childSnapshot) {
-  console.log(childSnapshot.val());
+  var firstTrainConverted = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
+  var timeDiff = moment().diff(moment(firstTrainConverted), "minutes");
+  var timeRemain = timeDiff % childSnapshot.val().frequency;
+  var minutesAway = childSnapshot.val().frequency - timeRemain;
+  var nextArrival = moment().add(minutesAway, "minutes");
+  nextArrival = moment(nextArrival).format("hh:mm");
+  var firebaseName = childSnapshot.val().trainName;
+	var firebaseDestination = childSnapshot.val().destination;
+	var firebaseFrequency = childSnapshot.val().frequency;
 
-  // Create responsive table to display user input.
-  var newRow = $("<tr>").append(
-    $("<td>").text(trainName),
-    $("<td>").text(destination),
-    $("<td>").text(frequency),
-    $("<td>").text(nextArrival),
-    $("<td>").text(minutesAway),
-  );
+// Create responsive table to display user input.
 
-// Append the new row to the table
-$("#train-table > tbody").append(newRow);
+$("#train-table > tbody").append("<tr><td>" + firebaseName + 
+"</td><td>" + firebaseDestination + 
+"</td><td>"+ firebaseFrequency + 
+"</td><td>" + nextArrival + 
+"</td><td>" + minutesAway + "</td></tr>");
 
 // Handle the errors
 }, function(errorObject) {
-  console.log("Errors handled: " + errorObject.code);
+console.log("Errors handled: " + errorObject.code);
 });
