@@ -12,6 +12,7 @@
     <title>Train Scheduler</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Ravi+Prakash&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Train Scheduler</h1>
+            <h1>Train Scheduler</h1>
         </div>
     </div>
     <div class="container">
@@ -33,11 +34,11 @@
                         <table class="table table-sm table-hover" id='train-table'>
                             <thead>
                                 <tr>
-                                    <th scope="col">Train Name</th>
-                                    <th scope="col">Destination</th>
-                                    <th scope="col">Frequency (Minutes)</th>
-                                    <th scope="col">Next Arrival</th>
-                                    <th scope="col">Minutes Away</th>
+                                    <th scope="col" class="cell">Train Name</th>
+                                    <th scope="col" class="cell">Destination</th>
+                                    <th scope="col" class="cell">Frequency (Minutes)</th>
+                                    <th scope="col" class="cell">Next Arrival</th>
+                                    <th scope="col" class="cell">Minutes Away</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,27 +56,27 @@
                         <div class="card-body">
                             <form>
                                 <div class="input-group">
-                                    <label for="formGroupExampleInput">Train Name</label>
+                                    <label for="formGroupExampleInput"><strong>Train Name</strong></label>
                                     <input type="text" class="form-control" id="train-name-input"
                                         placeholder="Train Name">
                                 </div>
                                 <div class="input-group">
-                                    <label for="formGroupExampleInput2">Destination</label>
+                                    <label for="formGroupExampleInput2"><strong>Destination</strong></label>
                                     <input type="text" class="form-control" id="destination-input"
                                         placeholder="Destination">
                                 </div>
                                 <div class="input-group">
-                                    <label for="formGroupExampleInput">First Train Time (Military Time hh:mm) </label>
-                                    <input type="text" class="form-control" id="first-train-input"
+                                    <label for="formGroupExampleInput"><strong>First Train Time (Military Time hh:mm)</strong></label>
+                                    <input type="number" class="form-control" id="first-train-input"
                                         placeholder="First Train Time">
                                 </div>
                                 <div class="input-group">
-                                    <label for="formGroupExampleInput2">Frequency (Minutes)</label>
-                                    <input type="text" class="form-control" id="frequency-input"
+                                    <label for="formGroupExampleInput2"><strong>Frequency (Minutes)</strong></label>
+                                    <input type="number" class="form-control" id="frequency-input"
                                         placeholder="Frequency of Train">
                                 </div>
                             </form>
-                            <button type="button" class="btn btn-secondary" id="add-train">Add Train</button>
+                            <button type="button" class="btn btn-secondary" id="add-train"><strong>Add Train</strong></button>
                         </div>
                     </div>
                 </div>

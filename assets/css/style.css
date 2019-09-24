@@ -1,3 +1,56 @@
+body {
+    background-image: url(../images/trainPhoto.jpg)
+}
+
+h1 {
+    text-align: center;
+    font-size: 100px;
+}
+
+td {
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.jumbotron {
+    background-color: black;
+    font-family: "Ravi Prakash", cursive;
+    color: white;
+}
+
+.cell {
+    color: #EE901C;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 24px;
+}
+
+.card {
+    border: 2px solid #EE901C;
+}
+
+.mb-4 {
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.card-header {
+    background-color: black;
+    color: #EE901C;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+.card-body {
+    background-color: black;
+    color: #EE901C;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 24px;
+}
+
 .form-control {
     margin-left: 15px;
 }
@@ -8,4 +61,18 @@
 
 .btn-secondary {
     margin-top: 20px;
+    background-color: #EE901C;
+    border: solid 1px black;
+}
+
+.btn-secondary:hover {
+    background-color: #EE901C;
+    color: black;
+    border: 1px solid #EE901C;
+}
+
+.btn-secondary:visited {
+    background-color: #EE901C;
+    color: black;
+    border: 1px solid #EE901C;
 }
