@@ -28,10 +28,10 @@ $("#add-train").on("click", function(event) {
   event.preventDefault();
 
   // Take in user input.
-  nameInput = $("#train-name-input").val().trim();
-  destinationInput = $("#destination-input").val().trim();
-  firstTrainInput = $("#first-train-input").val().trim();
-  frequencyInput = $("#frequency-input").val().trim();
+  trainName = $("#train-name-input").val().trim();
+  destination = $("#destination-input").val().trim();
+  firstTrain = $("#first-train-input").val().trim();
+  frequency = $("#frequency-input").val().trim();
 
   // Create database keys.
   database.ref().push({
@@ -56,15 +56,13 @@ $("#add-train").on("click", function(event) {
 database.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
-  var sv = childSnapshot.val();
-
   // Create responsive table to display user input.
   var newRow = $("<tr>").append(
-    $("<td>").text(sv.trainName),
-    $("<td>").text(sv.destination),
-    $("<td>").text(sv.frequency),
-    $("<td>").text(sv.nextArrival),
-    $("<td>").text(sv.minutesAway),
+    $("<td>").text(trainName),
+    $("<td>").text(destination),
+    $("<td>").text(frequency),
+    $("<td>").text(nextArrival),
+    $("<td>").text(minutesAway),
   );
 
 // Append the new row to the table
